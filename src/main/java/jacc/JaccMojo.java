@@ -54,17 +54,16 @@ public class JaccMojo
 	        for(String fname : files)
 	        	if(fname.contains(FILE_EXTENSION))
 	        		validJacc.add(f.getPath() +"/"+ fname);
-	        if(validJacc.isEmpty()) System.out.println("Error, no valid JACC files.");
-	        else {
-	        	for(String e : validJacc)System.out.println(e);
-	        	String [] arr = validJacc.toArray(new String[validJacc.size()]);;
-	        	if(!timestamp) {
-	        		arr = validJacc.toArray(new String[validJacc.size() + 1]);
-	        		arr[arr.length-1] = "-z";
+	        	if(validJacc.isEmpty()) System.out.println("Error, no valid JACC files.");
+	        	else {
+	        		for(String e : validJacc) {
+	        			System.out.println("Converting " + e + "...");
+	        	
+	        			String [] arr = {e};
+	        			if(!timestamp) arr = new String [] {e, "-z"};
+		        	
+	        			jacc.CommandLine.main(arr);
 	        	}
-	        	
-	        	
-	        	jacc.CommandLine.main(arr);
 	        }
         }
        
