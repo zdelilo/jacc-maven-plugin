@@ -20,7 +20,6 @@ public class TextOutput extends Output {
     }
 
     public void write(PrintWriter out) {
-        datestamp(out);
         for (int i=0; i<numStates; i++) {
             out.print(resolver.getConflictsAt(i));
             out.println(describeEntry(i));

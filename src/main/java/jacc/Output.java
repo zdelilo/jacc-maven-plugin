@@ -44,6 +44,7 @@ public abstract class Output extends Phase {
     public void write(String filename) {
         PrintWriter writer = null;
         try {
+        	System.out.println("writing to " + filename + "...");
             writer = new PrintWriter(new FileWriter(filename));
             write(writer);
         } catch (IOException e) {
@@ -75,8 +76,4 @@ public abstract class Output extends Phase {
         out.println(line);
     }
 
-    protected static void datestamp(PrintWriter out) {
-        out.println("// Output created by jacc on " + new Date());
-        out.println();
-    }
 }
