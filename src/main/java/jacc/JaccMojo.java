@@ -25,16 +25,13 @@ import org.apache.maven.project.MavenProject;
 import java.io.*;
 import java.util.ArrayList;
 
-
-
+//takes all jacc files in a given directory and converts them to token and parser files.
 @Mojo (name = "generate", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class JaccMojo
     extends AbstractMojo
 {
-	@Parameter (defaultValue = "${basedir}/output/", required = false)
-	private File outputDirectory;
 	
-	@Parameter (required = true)
+	@Parameter (defaultValue = "${basedir}/resources/", required = false)
 	private File sourceDirectory;
 	
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
@@ -46,19 +43,14 @@ public class JaccMojo
     public void execute()
         throws MojoExecutionException
     {
-        File o = outputDirectory;
         File f = sourceDirectory;
-        if ( !o.exists() )
-        {
-            o.mkdirs();
-        }
         String [] files = f.list();
         ArrayList<String> validJacc = new ArrayList<String>();
         if(files == null) System.out.println("Error, no files contained in source directory.");
         else {
 	        for(String fname : files)
 	        	if(fname.contains(FILE_EXTENSION))
-	        		validJacc.add(fname);
+	        		validJacc.add(f.getPath() +"/"+ fname);
 	        if(validJacc.isEmpty()) System.out.println("Error, no valid JACC files.");
 	        else {
 	        	String [] arr = validJacc.toArray(new String[validJacc.size()]);
