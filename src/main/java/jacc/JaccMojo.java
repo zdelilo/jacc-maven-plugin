@@ -61,7 +61,9 @@ public class JaccMojo
 	        		validJacc.add(fname);
 	        if(validJacc.isEmpty()) System.out.println("Error, no valid JACC files.");
 	        else {
-	        	jacc.CommandLine.main((String []) validJacc.toArray());
+	        	String [] arr = (String[]) validJacc.toArray();
+	        	for(String e : arr)System.out.println(e);
+	        	jacc.CommandLine.main(arr);
 	        }
         }
        
