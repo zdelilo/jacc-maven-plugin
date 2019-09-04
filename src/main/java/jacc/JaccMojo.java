@@ -34,6 +34,9 @@ public class JaccMojo
 	@Parameter (defaultValue = "${basedir}/resources/", required = false)
 	private File sourceDirectory;
 	
+	@Parameter (defaultValue = "true", required = false)
+	private boolean timestamp;
+	
     @Parameter(defaultValue = "${project}", required = true, readonly = true)
     MavenProject project;
 	
@@ -53,8 +56,14 @@ public class JaccMojo
 	        		validJacc.add(f.getPath() +"/"+ fname);
 	        if(validJacc.isEmpty()) System.out.println("Error, no valid JACC files.");
 	        else {
-	        	String [] arr = validJacc.toArray(new String[validJacc.size()]);
-	        	for(String e : arr)System.out.println(e);
+	        	for(String e : validJacc)System.out.println(e);
+	        	String [] arr = validJacc.toArray(new String[validJacc.size()]);;
+	        	if(!timestamp) {
+	        		arr = validJacc.toArray(new String[validJacc.size() + 1]);
+	        		arr[arr.length-1] = "-z";
+	        	}
+	        	
+	        	
 	        	jacc.CommandLine.main(arr);
 	        }
         }

@@ -21,6 +21,8 @@ public class Settings {
     public static final int SLR1  = 1;
 
     public static final int LALR1 = 2;
+    
+    public boolean timestamp = true;
 
     public void setMachineType(int machineType) {
         this.machineType = machineType;

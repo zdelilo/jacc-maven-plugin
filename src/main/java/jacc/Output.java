@@ -25,7 +25,7 @@ public abstract class Output extends Phase {
     protected int          numStates;
     protected JaccTables   tables;
     protected JaccResolver resolver;
-    protected Settings     settings;
+    protected static Settings     settings;
 
     protected Output(Handler handler, JaccJob job) {
         super(handler);
@@ -76,4 +76,10 @@ public abstract class Output extends Phase {
         out.println(line);
     }
 
+    protected static void datestamp(PrintWriter out) {
+        if(settings.timestamp) {
+        	out.println("// Output created by jacc on " + new Date());
+        	out.println();
+        }
+    }
 }

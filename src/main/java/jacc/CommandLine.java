@@ -79,6 +79,9 @@ public class CommandLine {
                         case 'n':
                             wantStates = true;
                             break;
+                        case 'z':
+                        	settings.timestamp=false;
+                        	break;
                         default:
                             usage("Unrecognized command line option "+
                                   arg.charAt(j));
