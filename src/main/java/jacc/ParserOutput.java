@@ -18,6 +18,7 @@ public class ParserOutput extends Output {
     }
 
     public void write(PrintWriter out) {
+        datestamp(out);
         String pkg = settings.getPackageName();
         if (pkg!=null) {
             out.println("package " + pkg +";");

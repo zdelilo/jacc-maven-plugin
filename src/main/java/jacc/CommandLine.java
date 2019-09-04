@@ -115,9 +115,9 @@ public class CommandLine {
             void visit(String name) { job.readErrorExamples(name); }
         });
 
-        if (handler.getNumFailures()>0) {
-            return;
-        }
+//        if (handler.getNumFailures()>0) {
+//            return;
+//        }
         if (wantParser) {
             new ParserOutput(handler, job)
              .write(prefix + settings.getClassName() + ".java");

@@ -33,6 +33,7 @@ public class DotOutput extends Output {
 
 
     public void write(PrintWriter out) {
+        datestamp(out);
         out.println("digraph " + settings.getInterfaceName() + " {");
         out.println("node [shape=box];");
         for (int st=0; st<numStates; st++) {
