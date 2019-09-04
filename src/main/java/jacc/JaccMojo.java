@@ -26,13 +26,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 
-/**
- * Goal which touches a timestamp file.
- *
- * @goal touch
- * 
- * @phase process-sources
- */
+
 @Mojo (name = "generate", defaultPhase = LifecyclePhase.GENERATE_SOURCES)
 public class JaccMojo
     extends AbstractMojo

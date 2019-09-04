@@ -13,32 +13,14 @@
   <inheritedByDefault>true</inheritedByDefault>
   <mojos>
     <mojo>
-      <goal>touch</goal>
-      <description>Goal which touches a timestamp file.</description>
+      <goal>generate</goal>
       <requiresDirectInvocation>false</requiresDirectInvocation>
       <requiresProject>true</requiresProject>
       <requiresReports>false</requiresReports>
       <aggregator>false</aggregator>
       <requiresOnline>false</requiresOnline>
       <inheritedByDefault>true</inheritedByDefault>
-      <phase>process-sources</phase>
-      <implementation>jacc.JaccMojo</implementation>
-      <language>java</language>
-      <instantiationStrategy>per-lookup</instantiationStrategy>
-      <executionStrategy>once-per-session</executionStrategy>
-      <threadSafe>false</threadSafe>
-      <parameters/>
-    </mojo>
-    <mojo>
-      <goal>jacc</goal>
-      <description>Goal which touches a timestamp file.</description>
-      <requiresDirectInvocation>false</requiresDirectInvocation>
-      <requiresProject>true</requiresProject>
-      <requiresReports>false</requiresReports>
-      <aggregator>false</aggregator>
-      <requiresOnline>false</requiresOnline>
-      <inheritedByDefault>true</inheritedByDefault>
-      <phase>generate-resources</phase>
+      <phase>generate-sources</phase>
       <implementation>jacc.JaccMojo</implementation>
       <language>java</language>
       <instantiationStrategy>per-lookup</instantiationStrategy>
