@@ -89,21 +89,6 @@
           </execution>
         </executions>
       </plugin>
-        <plugin>
-                <groupId>jacc</groupId>
-                <artifactId>jacc-maven-plugin</artifactId>
-                <version>1.0-SNAPSHOT</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/resources</sourceDirectory><!--  the output directory is the same as the source directory -->
-                        </configuration>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
     </plugins>
   </build>
 </project>
